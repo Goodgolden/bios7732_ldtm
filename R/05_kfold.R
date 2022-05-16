@@ -48,10 +48,10 @@ singlefold <- function(obs, k) {
 #' @export
 #'
 #' @examples
+#'
+#'
+
 kfold.dismo <- function (x, k = 5, by = NULL) {
-
-
-
 
   if (is.vector(x)) {
     if (length(x) == 1) {
