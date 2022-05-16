@@ -46,6 +46,7 @@ Xmat <- Xsim(subject_sim = subject_sim,
              # Sigma = NULL,
              num_cov = num_cov, 
              seed = seed)
+str(Xmat)
 
 (X0 <- Xmat$X)
 (I0 <- Xmat$zeta)
@@ -69,6 +70,7 @@ phytools::plotTree(tree0, node.numbers = T)
 
 Now we have the working design matrix $X^*$, this is the $X$ by removing the first column;
 and the $\zeta^*$ matrix now must include the first column of 1s.
+
 
 ```{r}
 Xstar <- Xmat$X[, -1]
@@ -95,7 +97,7 @@ data_dtm <- simulate_DTM(subject_sim = subject_sim,
                         phi_max = 1.2,
                         seed = seed)
 
-# View(data_dtm)
+str(data_dtm)
 ```
 
 
@@ -133,13 +135,12 @@ The final $\beta$ will be the original one by removing the first column.
 the final $\beta$ will be a `r num_cov - 1` $\times$ `r num_cov` matrix;
 
 ```{r fig.height=3, fig.width=1.5}
-betas0 <- data_dtm$phi_sim[, -1]
+betas0 <- data_dtm$phi_sim
 
 
-colors <- c(colorRampPalette(c("red", "black"), bias = 2)(100),
-            colorRampPalette(c("black", "green"), bias = 2)(100))
+colors <- c(colorRampPalette(c("green", "black"), bias = 2)(100),
+            colorRampPalette(c("black", "red"), bias = 2)(100))
 
-?colorRampPalette
 
 pheatmap(
   mat = as.matrix(betas0), 
@@ -147,13 +148,14 @@ pheatmap(
   ## colors from line86
   border_color = "grey60",
   cluster_rows = F,  
+  cluster_cols = F,
   show_colnames = T,
   show_rownames = T,
   drop_levels = F,
   fontsize = 10,
   frontsize_row = 8,
   frontsize_col = 8,
-  main  = "Heatmap Clustered")
+  main  = "Heatmap default betas")
 
 # pheatmap(
 #   mat = as.matrix(data_dtm$Y[[1]]), 
@@ -173,8 +175,8 @@ pheatmap(
 
 
 ```{r}
-
-
+Design <- data_dtm$X[, -1]
+beta <- data_dtm$phi_sim[, -1]
 ```
 
 
