@@ -2,20 +2,49 @@
 % Please edit documentation in R/03_dirichlet.R
 \name{QL_fun}
 \alias{QL_fun}
-\title{Title  Gradient Descent Method for penalized likelihood
+\title{Title:  Gradient Descent Method for penalized likelihood
 this is gradient descent methods for
 penalized likelihood}
 \usage{
 QL_fun(Ytree, X, W, model, B1, grad, alpha, lambda, L)
 }
 \arguments{
-\item{L}{}
+\item{Ytree}{is the tree information from the \code{Ytree} function.
+Input will be a set of n * 2 matrices, each of which represent the an interior knot
+and its children branches}
+
+\item{X}{\code{matrix} of nxp  which is the number of subjects by number of covariates}
+
+\item{W}{\code{matrix} this will be the starting Beta used in the algorithm}
+
+\item{model}{\code{character} type of model to use for the Log Likelihood. Options are
+(Dirichlet Multinomial = "dirmult", Multinomial = "mult", or
+Dirichlet = "dir")}
+
+\item{B1}{the Beta values that will be updated in the loop using the gradient descent}
+
+\item{grad}{the gradient descent}
+
+\item{alpha}{\code{numeric} the desired lasso parameter. In paper they used (0, 0.25, 0,5, and 1)
+to investigate the covariate selection.
+Note: In the paper they noted this as Gamma}
+
+\item{lambda}{\code{numeric} the tuning parameter}
+
+\item{L}{\code{numeric} Lipschitz constant, instead of choosing a constant step size L.
+We can use the backtracking to choose a suitable L at each iteration.
+Note: This is noted at C in the Wang et al. paper}
 }
 \value{
-
+The smallest approximated negative likelihood obtained through the algorithm
 }
 \description{
-Title  Gradient Descent Method for penalized likelihood
+Title:  Gradient Descent Method for penalized likelihood
 this is gradient descent methods for
 penalized likelihood
+}
+\details{
+Since the penalized likelihood function is non-smooth, we adopt the accelerated
+proximal gradient method to minimize the objective function (equation 4) which will
+estimate parameters and select covariates simultaneously. \link{Tao Wang and Hongyu Zhao (2017)}
 }

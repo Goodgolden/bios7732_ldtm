@@ -2,7 +2,7 @@
 % Please edit documentation in R/04_simulation.R
 \name{simulate_DTM}
 \alias{simulate_DTM}
-\title{Title Simulate Dirichlet-Multinomial-Tree Regression Model}
+\title{Title: Simulate Dirichlet-Multinomial-Tree Regression Model}
 \usage{
 simulate_DTM(
   subject_sim = 100,
@@ -22,23 +22,23 @@ simulate_DTM(
 )
 }
 \arguments{
-\item{subject_sim}{\code{integer} the number of subjects to simulate, default = 100}
+\item{subject_sim}{\code{integer} Number of subjects to simulate, default = 100}
 
-\item{tree}{\code{phylo} a tree structure for simulated data}
+\item{tree}{\code{phylo} Tree structure for simulated data, default is NULL.}
 
-\item{num_leaf}{\code{integer} the number of leaves in tree to simulate, default = 5}
+\item{num_leaf}{\code{integer} The number of leaves in tree to simulate}
 
-\item{covariates_sim}{\code{integer} the number of covariates to simulate, default = 50}
+\item{covariates_sim}{\code{integer} Number of covariates to simulate, default = 50}
 
-\item{rho}{\code{numeric} the correlation structure, default = 0.20}
+\item{rho}{\code{numeric} Correlation structure between 0 & 1, default = 0.20}
 
-\item{Sigma}{\code{matrix} the variance-covariance matrix must be symmetric positive semi-definite}
+\item{Sigma}{\code{matrix} Variance-covariance matrix must be symmetric positive semi-definite}
 
-\item{num_branch}{\code{integer} number of branches the associated covariates are in, default = 3}
+\item{num_branch}{\code{integer} Number of branches the associated covariates are in, default = 3}
 
-\item{num_cov}{\code{integer} the number of associated covariates to simulate, default = 5}
+\item{num_cov}{\code{integer} Number of associated covariates to simulate, default = 5}
 
-\item{seed}{\code{integer} seed setup, default = 555}
+\item{seed}{\code{integer} Seed for reproducibility, default = 555}
 }
 \value{
 A list of results:

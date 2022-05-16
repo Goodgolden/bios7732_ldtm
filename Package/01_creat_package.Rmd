@@ -213,6 +213,9 @@ build_readme()
 
 usethis::use_data(toy_data0,
                   toy_data1, 
+                  Design,
+                  beta,
+                  data_dtm,
                   internal = TRUE,
                   overwrite = TRUE)
 
@@ -227,7 +230,7 @@ load_all()
 
 
 ```{r}
-l
+
 ```
 
 

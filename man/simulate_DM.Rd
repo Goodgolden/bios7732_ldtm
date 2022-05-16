@@ -2,7 +2,7 @@
 % Please edit documentation in R/04_simulation.R
 \name{simulate_DM}
 \alias{simulate_DM}
-\title{Title Simulate Dirichlet-Multinomial Regression Model}
+\title{Title: Simulate Dirichlet-Multinomial Regression Model}
 \usage{
 simulate_DM(
   n_obs = 100,
@@ -21,7 +21,34 @@ simulate_DM(
 )
 }
 \arguments{
-\item{Sigma}{}
+\item{n_obs}{\code{integer} Number of observations}
+
+\item{n_vars}{\code{integer} Number of variables}
+
+\item{n_taxa}{\code{integer} Number of taxa}
+
+\item{n_relevant_vars}{\code{integer} Number of variables that are important}
+
+\item{n_relevant_taxa}{\code{integer} Number of important taxa}
+
+\item{beta_min}{\code{numeric} The desired min beta value}
+
+\item{beta_max}{\code{numeric} The desired max beta value}
+
+\item{signoise}{\code{numeric} Default is 1.}
+
+\item{n_reads_min}{\code{numeric} Default is 5000. Used to obtain a random subject from n_reads_min
+to n_reads_max from the Dirichlet Multinomial Distribution using dirmult::simPop()}
+
+\item{n_reads_max}{\code{numeric} Default is 10000. Used to obtain a random subject from n_reads_min
+to n_reads_max from the Dirichlet Multinomial Distribution using dirmult::simPop()}
+
+\item{rho}{\code{numeric} Used for covariate correlation between 0 & 1. Default is NULL.
+Need either rho or Sigma to be input.}
+
+\item{Sigma}{\code{matrix} A symmetric positive definite matrix used for covariate
+correlation structure columns must match number of covariates.
+Default is NULL. Need either rho or Sigma to be input.}
 }
 \value{
 A list of outcomes including:
@@ -40,11 +67,11 @@ A list of outcomes including:
 }
 }
 \description{
-Title Simulate Dirichlet-Multinomial Regression Model
+Title: Simulate Dirichlet-Multinomial Regression Model
 }
 \section{This function can be used to simulate DM data.}{
 Taken from Wadsworth (2017)
-An integrative Bayesian Dirichlet-multinomial regression model for
+An integrative Bayesian Dirichlet-Multinomial regression model for
 the analysis of taxonomic abundances in microbiome data
 }
 

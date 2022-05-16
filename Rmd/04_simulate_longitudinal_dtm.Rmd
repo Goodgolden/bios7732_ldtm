@@ -177,6 +177,9 @@ pheatmap(
 ```{r}
 Design <- data_dtm$X[, -1]
 beta <- data_dtm$phi_sim[, -1]
+
+
+# save(Design, beta, file = "simulated_00_data.csv")
 ```
 
 

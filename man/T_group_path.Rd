@@ -2,7 +2,7 @@
 % Please edit documentation in R/03_dirichlet.R
 \name{T_group_path}
 \alias{T_group_path}
-\title{Title to get the tree path and alpha for penalty likelihood}
+\title{Title: Tree Path}
 \usage{
 T_group_path(
   Y,
@@ -19,11 +19,50 @@ T_group_path(
 )
 }
 \arguments{
-\item{lambda.min}{}
+\item{Y}{\code{matrix} of count outcomes}
+
+\item{X}{\code{matrix} of nxp  which is the number of subjects by number of covariates}
+
+\item{treeinfo}{A list objects necessary information from the \code{tree}.
+The output has the following properties:
+\itemize{
+\item Nnodes: \code{integer} the number of nodes in the given "phylo" tree
+\item Ntips: \code{integer} the number of tips/leaves in the given "phylo" tree
+\item Tredge: \code{matrix} the matrix for the edges information;
+each row represents the two ends of the edges
+\item TreeMat: \code{matrix} the matrix consists of logical values;
+the binary value of each taxa (by row) belongs to
+a given leaf or inner node (by col).
+}}
+
+\item{alpha}{\code{numeric} the desired lasso parameter. In paper they used (0, 0.25, 0,5, and 1)
+to investigate the covariate selection.
+Note: In the paper they noted this as Gamma}
+
+\item{cutoff}{\code{numeric} the desired cutoff value for the tree path loop}
+
+\item{model}{\code{character} type of model to use for the Log Likelihood. Options are
+(Dirichlet Multinomial = "dirmult", Multinomial = "mult", or
+Dirichlet = "dir")}
+
+\item{err.conv}{\code{numeric} the desired tolerance level for convergence}
+
+\item{iter.max}{\code{numeric} maximum number of iterations}
+
+\item{L.init}{\code{numeric} Initial Lipschitz constant, instead of choosing a constant step size L.
+We can use the backtracking to choose a suitable L at each iteration. Set to NULL.
+Note: This is noted at C in \link{Tao Wang and Hongyu Zhao (2017)}}
+
+\item{lambda.max}{\code{numeric} The desired maximum lambda value; set to NULL}
+
+\item{lambda.min}{\code{numeric} The desired minimum lambda value; set to NULL}
 }
 \value{
-
+This function will output the selected tree path and alpha value
 }
 \description{
-Title to get the tree path and alpha for penalty likelihood
+Title: Tree Path
+}
+\details{
+Get the tree path and alpha for the penalized likelihood. \link{Tao Wang and Hongyu Zhao (2017)}
 }

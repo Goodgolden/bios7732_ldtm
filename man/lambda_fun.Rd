@@ -2,16 +2,29 @@
 % Please edit documentation in R/03_dirichlet.R
 \name{lambda_fun}
 \alias{lambda_fun}
-\title{Title Getting betas use the max(beta, 1)}
+\title{Title: Getting betas use the max(beta, 1)}
 \usage{
 lambda_fun(grad, L, alpha, lambda)
 }
 \arguments{
-\item{lambda}{}
+\item{grad}{the gradient descent}
+
+\item{L}{\code{numeric} Lipschitz constant, instead of choosing a constant step size L.
+We can use the backtracking to choose a suitable L at each iteration.
+Note: This is noted at C in \link{Tao Wang and Hongyu Zhao (2017)}}
+
+\item{alpha}{\code{numeric} the desired lasso parameter. In paper they used (0, 0.25, 0,5, and 1)
+to investigate the covariate selection.
+Note: In the paper they noted this as Gamma}
+
+\item{lambda}{\code{numeric} the tuning parameter}
 }
 \value{
-
+The updated Beta matrix obtained from the algortihm
 }
 \description{
-Title Getting betas use the max(beta, 1)
+Title: Getting betas use the max(beta, 1)
+}
+\details{
+This function is looking to maximize the beta matrix
 }

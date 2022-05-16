@@ -2,16 +2,28 @@
 % Please edit documentation in R/03_dirichlet.R
 \name{lambda_raw_fun}
 \alias{lambda_raw_fun}
-\title{Title Grid methods to find which lambda minimize the loss}
+\title{Title: Grid methods to find which lambda minimize the loss}
 \usage{
 lambda_raw_fun(grad, L, alpha, lambda.raw = 2, fac1 = 1.1, fac2 = 0.96)
 }
 \arguments{
+\item{grad}{the gradient descent}
+
+\item{L}{\code{numeric} Lipschitz constant, instead of choosing a constant step size L.
+We can use the backtracking to choose a suitable L at each iteration.
+Note: This is noted at C in \link{Tao Wang and Hongyu Zhao (2017)}}
+
+\item{alpha}{\code{numeric} the desired lasso parameter. In paper they used (0, 0.25, 0,5, and 1)
+to investigate the covariate selection.
+Note: In the paper they noted this as Gamma}
+
+\item{lambda.raw}{\code{numeric} the intial lambda value}
+
 \item{fac2}{}
 }
 \value{
-
+This function will return the the lambda that minimizes the loss function
 }
 \description{
-Title Grid methods to find which lambda minimize the loss
+Title: Grid methods to find which lambda minimize the loss
 }

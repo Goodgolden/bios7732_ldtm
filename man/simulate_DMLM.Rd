@@ -15,7 +15,22 @@ simulate_DMLM(
 )
 }
 \arguments{
-\item{seed}{}
+\item{subject_sim}{\code{integer} Number of subjects to simulate}
+
+\item{B_sim}{\code{integer} Number of betas}
+
+\item{n_vars}{\code{integer} Number of covariates to simulate}
+
+\item{active_cov}{\code{integer} Number of associated covariates}
+
+\item{rho}{\code{numeric} Used for covariate correlation between 0 & 1. Default is NULL.
+Need either rho or Sigma to be input.}
+
+\item{Sigma}{\code{matrix} A symmetric positive definite matrix used for covariate
+correlation structure columns must match number of covariates.
+Default is NULL. Need either rho or Sigma to be input.}
+
+\item{seed}{\code{integer} Seed for reproducibility, default = 555}
 }
 \value{
 a list of outcomes:
