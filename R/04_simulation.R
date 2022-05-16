@@ -1,9 +1,11 @@
-# There are three functions in this file: ---------------------
+# Tthree functions in this file: ---------------------
+
 ## - Simulate Dirichlet-Multinomial Regression Model
 ## - Simulate Dirichlet-Multinomial Tree Regression Model
 ## - Simulate DMLMbvs model Doubly Multivariate Linear Model
 
-## simulate_DM {{{---------------
+## 4.1 simulate_DM {{{---------------
+
 #' Title: Simulate Dirichlet-Multinomial Regression Model
 #'
 #' @description # This function can be used to simulate DM data.
@@ -157,10 +159,10 @@ simulate_DM <- function(n_obs = 100,
     Sigma = Sigma
   ))
 }
-## }}}---------------
+## }}}-----------------
 
 
-## Xsim {{{---------------
+## 4.2 Xsim {{{---------------
 #' Title: Simulate Design matrix and Indicators
 #'
 #' @param subject_sim `integer` Number of subjects to simulate
@@ -239,7 +241,7 @@ Xsim<- function(subject_sim = 100,
 
 
 
-## simulate_DTM {{{---------------
+## 4.3 simulate_DTM {{{---------------
 #
 #' Title: Simulate Dirichlet-Multinomial-Tree Regression Model
 #' @description Wrapper function for the Rcpp code to simulate DTM data
@@ -434,11 +436,11 @@ simulate_DTM <- function(subject_sim = 100,
     Sigma = Sigma
   ))
 }
-## }}}---------------
+## }}}----------------
 
 
 
-## simulate_DMLM {{{------------
+## 4.4 simulate_DMLM {{{------------
 # Code to simulate data for DMLMbvs model (Doubly Multivariate Linear Model)
 #' Title simulate data for DMLMbvs model
 #' @param subject_sim `integer` Number of subjects to simulate
