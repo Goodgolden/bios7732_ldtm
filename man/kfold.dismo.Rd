@@ -19,7 +19,3 @@ Title
 adapted from R package dismo
 ??dismo # Species Distribution Modeling
 }
-\examples{
-
-
-}
